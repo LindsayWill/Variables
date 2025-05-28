@@ -1,4 +1,6 @@
 ﻿
+using System.Diagnostics.SymbolStore;
+using System.Globalization;
 using System.Xml; //To use Xml document.
 //Declaring and using some variables using the object type.
 
@@ -50,4 +52,60 @@ XmlDocument xml2 = new XmlDocument(); //Works with ALL C# versions.
  * the second statement. */
 var file1 = File.CreateText("something1.txt");
 StreamWriter file2 = File.CreateText("something2.txt");
+
+// Default values of int, a bool, a DateTime, and a string.
+Console.WriteLine($"default(int) = {default(int)}");
+Console.WriteLine($"default(bool) = {default(bool)}");
+Console.WriteLine($"default(DateTime) = {default(DateTime)}");
+Console.WriteLine($"default(string) = {default(string) ?? "<NULL>"}");
+//Declaring a number, assign a vlaue, and resetting it to default value.
+int number = 13;
+Console.WriteLine($"number set to: {number}");
+number = default;
+Console.WriteLine($"number reset to its default: {number}");
+
+//No carrage return/ Characters on a single line (Write Method).
+Console.Write("A");
+Console.Write("B");
+Console.Write("C");
+
+//Carrage return (WriteLine Methond).
+Console.WriteLine("A");
+Console.WriteLine("B");
+Console.WriteLine("C");
+
+//Numbered postional arguments.
+//if needing formatted Format method of string.
+
+/*Set current culture to US English so that all readers
+ * see the same output.*/
+CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
+
+int numberOfApples = 12;
+decimal pricePerApple = 0.35M;
+
+Console.WriteLine(
+    format: "{0} apples cost {1:C}",
+    arg0: numberOfApples,
+    arg1: pricePerApple * numberOfApples);
+
+string formatted = string.Format(
+    format: "{0} apples cost {1:C}",
+    arg0: numberOfApples,
+    arg1: pricePerApple* numberOfApples);
+
+//WriteToFile(formatted); //Writes the string into file.
+
+//Three and five arguments.
+//Three parameter values can use named arguments.
+Console.WriteLine("{0} {1} lived in {2}.",
+    arg0: "Roger", arg1: "Cevung", arg2: "Stockholm");
+
+//Four or more parameter values cannot use named arguments.
+Console.WriteLine(
+    "{0} {1} lived in {2} and worked in the {3} team at {4}.", "Roger", "Cevent", "Stockholm", "Education", "Optimizely");
+
+//Interloped string
+//C# 10 or earlier = Statement needs to be on one line
+Console.WriteLine($"{numberOfApples} apples cost {pricePerApple * numberOfApples:C}");
 
