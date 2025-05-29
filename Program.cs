@@ -109,3 +109,7 @@ Console.WriteLine(
 //C# 10 or earlier = Statement needs to be on one line
 Console.WriteLine($"{numberOfApples} apples cost {pricePerApple * numberOfApples:C}");
 
+Write("Press any key combination: ");
+ConsoleKeyInfo key  = Console.ReadKey();
+WriteLine();
+WriteLine("Key: {0}, Char: {1}, Modifiers: {2}", arg0: key.Key, arg1: key.KeyChar, arg2: key.Modifiers);
